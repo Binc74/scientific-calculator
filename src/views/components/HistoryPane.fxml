@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="MC">
+         <HBox.margin>
+            <Insets left="5.0" />
+         </HBox.margin>
+      </Button>
+      <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+      <Button minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="MR" />
+      <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+      <Button minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="M+" />
+      <Pane prefHeight="200.0" prefWidth="200.0" />
+      <Button minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="M-" />
+      <Pane prefHeight="200.0" prefWidth="200.0" />
+      <Button minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="MS" />
+      <Pane prefHeight="200.0" prefWidth="200.0" />
+      <Button minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="M.">
+         <HBox.margin>
+            <Insets right="5.0" />
+         </HBox.margin>
+      </Button>
+   </children>
+</HBox>
