@@ -12,6 +12,9 @@ import javafx.stage.Stage;
  * @author Bin Chen
  */
 public class CoreEventController {
+	private double xOffset;
+	private double yOffset;
+	
 	@FXML protected Button btnClose;
 	
 	public CoreEventController() {
@@ -36,11 +39,24 @@ public class CoreEventController {
 	}
 	
 	/**
-	 * Process drag window event.
+	 * Process mouse pressed event.
 	 * 
 	 * @param event				the mouse event
 	 */
-	@FXML public void processDragging(MouseEvent event) {
+	@FXML public void processMousePressed(MouseEvent event) {
+		xOffset = event.getSceneX();
+		yOffset = event.getSceneY();
+	}
+	
+	/**
+	 * Process mouse dragged event.
+	 * 
+	 * @param event				the mouse event
+	 */
+	@FXML public void processMouseDragged(MouseEvent event) {
+		Stage stage = (Stage) btnClose.getScene().getWindow();
 		
+		stage.setX(event.getScreenX() - xOffset);
+		stage.setY(event.getScreenY() - yOffset);	
 	}
 }
