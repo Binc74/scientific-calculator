@@ -1,7 +1,11 @@
-package controllers;
+package controllers.common;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -11,21 +15,30 @@ import javafx.stage.Stage;
  * 
  * @author Bin Chen
  */
-public class CoreEventController {
+public class CoreEventController implements Initializable {
 	private double xOffset;
 	private double yOffset;
+	
+	private Stage stage;
 	
 	@FXML protected Button btnClose;
 	
 	public CoreEventController() {
 	}
-		
+	
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+	}
+	
+	public void setupStage(Stage stage) {
+		this.stage = stage;
+	}
+	
 	/**
 	 * Process close window event.
 	 */
 	@FXML public void processExit() {
 		System.out.println("exit");
-		Stage stage = (Stage) btnClose.getScene().getWindow();
 		stage.close();
 	}
 	
@@ -34,7 +47,6 @@ public class CoreEventController {
 	 */
 	@FXML public void processMinimize() {
 		System.out.println("minimize");
-		Stage stage = (Stage) btnClose.getScene().getWindow();
 		stage.setIconified(true);
 	}
 	
@@ -54,8 +66,6 @@ public class CoreEventController {
 	 * @param event				the mouse event
 	 */
 	@FXML public void processMouseDragged(MouseEvent event) {
-		Stage stage = (Stage) btnClose.getScene().getWindow();
-		
 		stage.setX(event.getScreenX() - xOffset);
 		stage.setY(event.getScreenY() - yOffset);	
 	}

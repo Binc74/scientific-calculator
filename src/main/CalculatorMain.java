@@ -1,5 +1,6 @@
 package main;
 	
+import controllers.BasicCalculatorController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -16,8 +17,10 @@ public class CalculatorMain extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("../views/BasicView.fxml"));
-			Scene scene = new Scene(root);
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/BasicView.fxml"));
+			BasicCalculatorController contr = new BasicCalculatorController(primaryStage);
+			loader.setController(contr);
+			Scene scene = new Scene(loader.load());
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.initStyle(StageStyle.UNDECORATED);
