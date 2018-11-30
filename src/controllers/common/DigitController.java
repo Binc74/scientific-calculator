@@ -1,6 +1,8 @@
 package controllers.common;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import models.LowerArea;
 
 /**
  * Controller for digit buttons.
@@ -9,8 +11,10 @@ import javafx.event.ActionEvent;
  */
 public class DigitController {
 	
-	public DigitController() {
-		
+	private LowerArea number;
+	
+	public DigitController(LowerArea number) {
+		this.number = number;
 	}
 	
 	/**
@@ -19,6 +23,7 @@ public class DigitController {
 	 * @param event				the fxml event
 	 */
 	public void processDigit(ActionEvent event) {
-		System.out.println("??");
+		String digit = ((Button) event.getSource()).getText();
+		System.out.println("Pressed " + digit);
 	}
 }

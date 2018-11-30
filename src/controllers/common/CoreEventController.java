@@ -21,8 +21,6 @@ public class CoreEventController implements Initializable {
 	
 	private Stage stage;
 	
-	@FXML protected Button btnClose;
-	
 	public CoreEventController() {
 	}
 	
@@ -30,6 +28,11 @@ public class CoreEventController implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) {
 	}
 	
+	/**
+	 * A setter method that set the stage.
+	 * 
+	 * @param stage			the javafx stage
+	 */
 	public void setupStage(Stage stage) {
 		this.stage = stage;
 	}
@@ -56,6 +59,7 @@ public class CoreEventController implements Initializable {
 	 * @param event				the mouse event
 	 */
 	@FXML public void processMousePressed(MouseEvent event) {
+		System.out.println("Dragging");
 		xOffset = event.getSceneX();
 		yOffset = event.getSceneY();
 	}

@@ -30,7 +30,7 @@
             <Font size="19.0" />
          </font>
       </Button>
-      <Button fx:id="btnClose" minHeight="-Infinity" mnemonicParsing="false" onAction="#processExit" prefHeight="40.0" text="X">
+      <Button minHeight="-Infinity" mnemonicParsing="false" onAction="#processExit" prefHeight="40.0" text="X">
          <HBox.margin>
             <Insets />
          </HBox.margin>
