@@ -1,0 +1,17 @@
+/* style for the main layout */
+VBox {
+	-fx-background-color: #282828
+}
+
+Button {
+	-fx-background-color: #282828;
+	-fx-text-fill: white
+}
+
+Label {
+	-fx-text-fill: white
+}
+
+GridPane Button {
+	-fx-font-size: 20px
+}
