@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<fx:root alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="500.0" spacing="10.0" type="HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="500.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CoreEventController">
    <children>
       <Label text="Calculator">
          <padding>
@@ -18,7 +18,7 @@
          </padding>
       </Label>
       <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-      <Button ellipsisString="" mnemonicParsing="false" text="🗕">
+      <Button ellipsisString="" mnemonicParsing="false" onAction="#processMinimize" text="🗕">
          <opaqueInsets>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </opaqueInsets>
@@ -34,4 +34,4 @@
    <opaqueInsets>
       <Insets left="100.0" />
    </opaqueInsets>
-</fx:root>
+</HBox>

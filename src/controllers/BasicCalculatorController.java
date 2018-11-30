@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
  * 
  * @author Bin Chen
  */
-public class BasicCalculatorController extends CoreEventController {
+public class BasicCalculatorController {
 	
 	private DigitController digitContr;
 	
