@@ -2,6 +2,8 @@ package controllers.common;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.text.TextFlow;
 import models.LowerArea;
 
 /**
@@ -12,9 +14,13 @@ import models.LowerArea;
 public class DigitController {
 	
 	private LowerArea number;
+	private Label lower;
+	private TextFlow upper;
 	
-	public DigitController(LowerArea number) {
+	public DigitController(LowerArea number, Label lower, TextFlow upper) {
 		this.number = number;
+		this.lower = lower;
+		this.upper = upper;
 	}
 	
 	/**
@@ -24,10 +30,12 @@ public class DigitController {
 	 */
 	public void processDigit(ActionEvent event) {
 		String digit = ((Button) event.getSource()).getText();
-		System.out.println("Pressed " + digit);
+		number.addDigit(digit);
+		lower.setText(number.toString());
 	}
 	
-	public void processDot() {
+	
+	public void processPeriod() {
 		
 	}
 }

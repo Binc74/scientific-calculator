@@ -8,8 +8,10 @@ import controllers.common.*;
 import factories.BasicNodeFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import models.LowerArea;
@@ -29,13 +31,12 @@ public class BasicCalculatorController extends BaseController {
 	private LowerArea lowerArea;
 	
 	@FXML private TextFlow upperText;
-	@FXML private TextFlow lowerText;
+	@FXML private Label lowerText;
 	
 	public BasicCalculatorController(Stage stage) {
 		this.stage = stage;
 		upperArea = new UpperArea();
 		lowerArea = new LowerArea();
-		digitContr = new DigitController(lowerArea);
 		nf = new BasicNodeFactory();
 	}
 	
@@ -46,8 +47,11 @@ public class BasicCalculatorController extends BaseController {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		super.initialize(location, resources);
-		lowerText.getChildren().add(nf.createLabel("0", Consts.NORMAL_COLOR, Consts.LOWER_FONT_SIZE));
+		
+		digitContr = new DigitController(lowerArea, lowerText, upperText);
+		lowerText.setTextFill(Consts.NORMAL_COLOR);
+		lowerText.setFont(new Font(Consts.FONT_NAME, Consts.LOWER_FONT_SIZE));
+		lowerText.setText(Consts.INIT_VALUE);
 	}
 }
