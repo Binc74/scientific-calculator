@@ -8,6 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 
+/**
+ * The base class for all main controllers.
+ * 
+ * @author Bin Chen
+ */
 public abstract class BaseController implements Initializable {
 	protected Stage stage;
 	

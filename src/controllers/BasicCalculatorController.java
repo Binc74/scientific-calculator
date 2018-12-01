@@ -3,9 +3,13 @@ package controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import constants.Consts;
 import controllers.common.*;
+import factories.BasicNodeFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import models.LowerArea;
@@ -19,6 +23,7 @@ import models.UpperArea;
 public class BasicCalculatorController extends BaseController {
 	
 	private DigitController digitContr;
+	private BasicNodeFactory nf;
 	
 	private UpperArea upperArea;
 	private LowerArea lowerArea;
@@ -31,6 +36,7 @@ public class BasicCalculatorController extends BaseController {
 		upperArea = new UpperArea();
 		lowerArea = new LowerArea();
 		digitContr = new DigitController(lowerArea);
+		nf = new BasicNodeFactory();
 	}
 	
 	@FXML
@@ -42,5 +48,6 @@ public class BasicCalculatorController extends BaseController {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		super.initialize(location, resources);
+		lowerText.getChildren().add(nf.createLabel("0", Consts.NORMAL_COLOR, Consts.LOWER_FONT_SIZE));
 	}
 }

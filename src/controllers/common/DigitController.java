@@ -26,4 +26,8 @@ public class DigitController {
 		String digit = ((Button) event.getSource()).getText();
 		System.out.println("Pressed " + digit);
 	}
+	
+	public void processDot() {
+		
+	}
 }
