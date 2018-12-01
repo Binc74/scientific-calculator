@@ -23,6 +23,10 @@ public class DigitController {
 		this.upper = upper;
 	}
 	
+	private void updateView() {
+		lower.setText(number.toString());
+	}
+	
 	/**
 	 * Process the digit button.
 	 * 
@@ -31,11 +35,12 @@ public class DigitController {
 	public void processDigit(ActionEvent event) {
 		String digit = ((Button) event.getSource()).getText();
 		number.addDigit(digit);
-		lower.setText(number.toString());
+		updateView();
 	}
 	
 	
 	public void processPeriod() {
-		
+		number.addPeriod();
+		updateView();
 	}
 }

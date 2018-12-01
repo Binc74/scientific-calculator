@@ -45,6 +45,11 @@ public class BasicCalculatorController extends BaseController {
 		digitContr.processDigit(event);
 	}
 
+	@FXML
+	public void processPeriod() {
+		digitContr.processPeriod();
+	}
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);

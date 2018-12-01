@@ -1,12 +1,12 @@
 package models;
 
 /**
- * Model for the lower display area.
+ * Model for the lower display area of the calculator.
  * 
  * @author Bin Chen
  */
 public class LowerArea {	
-private StringBuilder rep;			// The string representation of the number
+	private StringBuilder rep;		// The string representation of the number
 	private boolean hasPeriod;		// True if this number has period
 	private boolean isTemp;			// True if this number is set by previous result
 	private boolean isNegative;		// True if this number is negative
@@ -18,6 +18,11 @@ private StringBuilder rep;			// The string representation of the number
 		isNegative = false;
 	}
 	
+	/**
+	 * Append a digit to current number.
+	 * 
+	 * @param digit				the digit to be add
+	 */
 	public void addDigit(String digit) {
 		if (isTemp) {
 			rep = new StringBuilder();
@@ -30,6 +35,9 @@ private StringBuilder rep;			// The string representation of the number
 		isTemp = false;
 	}
 	
+	/**
+	 * Append a period to current number if necessary.
+	 */
 	public void addPeriod() {
 		if (!hasPeriod) {
 			if (rep.length() == 0)
