@@ -56,7 +56,7 @@
             <Button mnemonicParsing="false" onAction="#processDigit" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button mnemonicParsing="false" onAction="#processDigit" text="4" GridPane.rowIndex="3" />
             <Button mnemonicParsing="false" onAction="#processDigit" text="5" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" text="⌫" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#processBackspace" text="⌫" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" text="÷" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" onAction="#processDigit" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Button mnemonicParsing="false" text="X" GridPane.columnIndex="3" GridPane.rowIndex="2" />

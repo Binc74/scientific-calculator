@@ -53,4 +53,12 @@ public class DigitController {
 		number.clear();
 		updateView();
 	}
+	
+	/**
+	 * Process backspace event.
+	 */
+	public void processBackspace() {
+		number.backspace();
+		updateView();
+	}
 }

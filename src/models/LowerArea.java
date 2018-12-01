@@ -55,6 +55,17 @@ public class LowerArea {
 		rep = new StringBuilder();
 	}
 	
+	/**
+	 * Backspace the number.
+	 */
+	public void backspace() {
+		if (rep.length() == 0)
+			isNegative = false;
+		else {
+			rep.deleteCharAt(rep.length() - 1);
+		}
+	}
+	
 	@Override
 	public String toString() {
 		if (rep.length() == 0)

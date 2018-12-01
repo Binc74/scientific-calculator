@@ -55,6 +55,11 @@ public class BasicCalculatorController extends BaseController {
 		digitContr.clearEntry();
 	}
 	
+	@FXML
+	public void processBackspace() {
+		digitContr.processBackspace();
+	}
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
