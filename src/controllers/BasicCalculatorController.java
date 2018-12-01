@@ -50,6 +50,11 @@ public class BasicCalculatorController extends BaseController {
 		digitContr.processPeriod();
 	}
 	
+	@FXML
+	public void clearEntry() {
+		digitContr.clearEntry();
+	}
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);

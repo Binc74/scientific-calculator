@@ -50,7 +50,7 @@
             <Button mnemonicParsing="false" text="√" GridPane.columnIndex="1" />
             <Button mnemonicParsing="false" text="x^2" GridPane.columnIndex="2" />
             <Button mnemonicParsing="false" text="1/x" GridPane.columnIndex="3" />
-            <Button mnemonicParsing="false" text="CE" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#clearEntry" text="CE" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" text="C" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" onAction="#processDigit" text="7" GridPane.rowIndex="2" />
             <Button mnemonicParsing="false" onAction="#processDigit" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />

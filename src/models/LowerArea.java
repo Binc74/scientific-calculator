@@ -48,8 +48,18 @@ public class LowerArea {
 		}
 	}
 	
+	/**
+	 * Clear the number.
+	 */
+	public void clear() {
+		rep = new StringBuilder();
+	}
+	
 	@Override
 	public String toString() {
+		if (rep.length() == 0)
+			return "0";
+		
 		String res = "";
 		boolean hasMetPeriod = !hasPeriod;
 		int count = 0;

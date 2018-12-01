@@ -38,9 +38,19 @@ public class DigitController {
 		updateView();
 	}
 	
-	
+	/**
+	 * Process period adding.
+	 */
 	public void processPeriod() {
 		number.addPeriod();
+		updateView();
+	}
+	
+	/**
+	 * Process entry clearing.
+	 */
+	public void clearEntry() {
+		number.clear();
 		updateView();
 	}
 }
