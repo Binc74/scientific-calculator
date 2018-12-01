@@ -15,7 +15,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import models.LowerArea;
-import models.UpperArea;
+import models.upperarea.UpperArea;
 
 /**
  * Controller for Basic Calculator.
@@ -35,8 +35,12 @@ public class BasicCalculatorController extends BaseController {
 	
 	public BasicCalculatorController(Stage stage) {
 		this.stage = stage;
+		
+		// Initialize upper and lower area
 		upperArea = new UpperArea();
 		lowerArea = new LowerArea();
+		upperArea.setLowerArea(lowerArea);
+		lowerArea.setUpperArea(upperArea);
 		nf = new BasicNodeFactory();
 	}
 	

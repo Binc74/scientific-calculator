@@ -15,17 +15,13 @@ import javafx.stage.Stage;
  * 
  * @author Bin Chen
  */
-public class CoreEventController implements Initializable {
+public class CoreEventController {
 	private double xOffset;
 	private double yOffset;
 	
 	private Stage stage;
 	
 	public CoreEventController() {
-	}
-	
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
 	}
 	
 	/**

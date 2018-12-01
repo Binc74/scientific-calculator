@@ -1,5 +1,7 @@
 package models;
 
+import models.upperarea.UpperArea;
+
 /**
  * Model for the lower display area of the calculator.
  * 
@@ -11,11 +13,22 @@ public class LowerArea {
 	private boolean isTemp;			// True if this number is set by previous result
 	private boolean isNegative;		// True if this number is negative
 	
+	private UpperArea upperArea;
+	
 	public LowerArea() {
 		rep = new StringBuilder();
 		hasPeriod = false;
 		isTemp = false;
 		isNegative = false;
+	}
+	
+	/**
+	 * A setter for upper area.
+	 * 
+	 * @param upperArea			the upper area
+	 */
+	public void setUpperArea(UpperArea upperArea) {
+		this.upperArea = upperArea;
 	}
 	
 	/**
@@ -64,6 +77,13 @@ public class LowerArea {
 		else {
 			rep.deleteCharAt(rep.length() - 1);
 		}
+	}
+	
+	/**
+	 * Submit the number to upper area.
+	 */
+	public void submitNumber() {
+		
 	}
 	
 	@Override
