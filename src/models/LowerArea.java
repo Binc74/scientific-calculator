@@ -95,7 +95,7 @@ public class LowerArea {
 		boolean hasMetPeriod = !hasPeriod;
 		int count = 0;
 		
-		// Adding ',' every three digits
+		// Adding ',' every three digits before meeting period
 		for (int i = rep.length() - 1; i > -1; --i) {
 			char c = rep.charAt(i);
 			
