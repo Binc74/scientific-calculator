@@ -5,11 +5,8 @@ public class Element {
 	public ElementType type;
 	public String val;
 	
-	public Element(ElementType type) {
+	public Element(ElementType type, String val) {
 		this.type = type;
-	}
-	
-	public void setVal(String val) {
 		this.val = val;
 	}
 }

@@ -15,9 +15,9 @@ public class DigitController {
 	
 	private LowerArea number;
 	private Label lower;
-	private TextFlow upper;
+	private Label upper;
 	
-	public DigitController(LowerArea number, Label lower, TextFlow upper) {
+	public DigitController(LowerArea number, Label lower, Label upper) {
 		this.number = number;
 		this.lower = lower;
 		this.upper = upper;

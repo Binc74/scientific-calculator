@@ -30,7 +30,7 @@ public class BasicCalculatorController extends BaseController {
 	private UpperArea upperArea;
 	private LowerArea lowerArea;
 	
-	@FXML private TextFlow upperText;
+	@FXML private Label upperText;
 	@FXML private Label lowerText;
 	
 	public BasicCalculatorController(Stage stage) {
@@ -42,6 +42,11 @@ public class BasicCalculatorController extends BaseController {
 		upperArea.setLowerArea(lowerArea);
 		lowerArea.setUpperArea(upperArea);
 		nf = new BasicNodeFactory();
+	}
+	
+	private void updateView() {
+		lowerText.setText(lowerArea.toString());
+		upperText.setText(upperArea.toString());
 	}
 	
 	@FXML
@@ -62,6 +67,12 @@ public class BasicCalculatorController extends BaseController {
 	@FXML
 	public void processBackspace() {
 		digitContr.processBackspace();
+	}
+	
+	@FXML
+	public void submitNumber() {
+		lowerArea.submitNumber();
+		updateView();
 	}
 	
 	@Override

@@ -50,5 +50,14 @@ public class UpperArea {
 		this.lowerArea = lowerArea;
 	}
 	
-	
+	@Override
+	public String toString() {
+		String ans = "";
+		
+		for (Element e: exp) {
+			ans += e.val;
+		}
+		System.out.println(exp.size());
+		return ans;
+	}
 }

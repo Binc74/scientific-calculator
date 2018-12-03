@@ -1,5 +1,7 @@
 package models;
 
+import models.elements.Element;
+import models.elements.ElementType;
 import models.upperarea.UpperArea;
 
 /**
@@ -31,6 +33,12 @@ public class LowerArea {
 		this.upperArea = upperArea;
 	}
 	
+	private void reset() {
+		rep = new StringBuilder();
+		hasPeriod = false;
+		isNegative = false;	
+	}
+	
 	/**
 	 * Append a digit to current number.
 	 * 
@@ -38,9 +46,7 @@ public class LowerArea {
 	 */
 	public void addDigit(String digit) {
 		if (isTemp) {
-			rep = new StringBuilder();
-			hasPeriod = false;
-			isNegative = false;			
+			reset();
 		}
 		
 		rep.append(digit);
@@ -83,7 +89,13 @@ public class LowerArea {
 	 * Submit the number to upper area.
 	 */
 	public void submitNumber() {
+		String val = rep.toString();
+		if (isNegative)
+			val = "-" + val;
 		
+		Element e = new Element(ElementType.NUMBER, val);
+		reset();
+		upperArea.append(e);
 	}
 	
 	@Override

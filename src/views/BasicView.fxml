@@ -18,10 +18,14 @@
       <fx:include fx:id="topPane" source="components/TopPane.fxml" />
       <VBox minWidth="-Infinity" prefHeight="100.0" prefWidth="500.0" spacing="5.0">
          <children>
-            <TextFlow fx:id="upperText" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="440.0" textAlignment="RIGHT">
+            <Label fx:id="upperText" alignment="TOP_RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="440.0" textAlignment="RIGHT">
                <VBox.margin>
                   <Insets bottom="5.0" left="30.0" right="30.0" />
-               </VBox.margin></TextFlow>
+               </VBox.margin>
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
             <Label fx:id="lowerText" alignment="CENTER_RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="440.0" textAlignment="RIGHT">
                <VBox.margin>
                   <Insets left="30.0" right="30.0" />
@@ -69,7 +73,7 @@
             <Button mnemonicParsing="false" onAction="#processPeriod" text="." GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <Button mnemonicParsing="false" onAction="#processDigit" text="3" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <Button mnemonicParsing="false" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Button mnemonicParsing="false" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#submitNumber" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5" />
          </children>
          <VBox.margin>
             <Insets />

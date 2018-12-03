@@ -11,7 +11,7 @@ public class BasicUpperAreaState extends BaseUpperAreaState {
 	
 	@Override
 	public void append(Element e) {
-
+		upperArea.exp.add(e);
 	}
 	
 	@Override
