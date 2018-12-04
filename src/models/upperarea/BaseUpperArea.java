@@ -1,7 +1,6 @@
 package models.upperarea;
 
 import java.util.LinkedList;
-import java.util.Queue;
 
 import models.LowerArea;
 import models.elements.Element;
@@ -15,12 +14,13 @@ import models.elements.Element;
 public abstract class BaseUpperArea implements UpperArea {	
 	private LowerArea lowerArea;
 	
-	public Queue<Element> exp;
-	public Queue<Element> memo;
+	public LinkedList<Element> exp;
+
+	protected Element pendingOperator;
 	
 	public BaseUpperArea() {
 		exp = new LinkedList<> ();
-		memo = new LinkedList<> ();
+		pendingOperator = null;
 	}
 	
 	public abstract void append(Element e);
@@ -34,14 +34,30 @@ public abstract class BaseUpperArea implements UpperArea {
 		this.lowerArea = lowerArea;
 	}
 	
+	public void clear() {
+		exp.clear();
+	}
+	
+	public abstract void appendOperator(Element e);
+	
+	public abstract double evaluate();
+	
 	@Override
 	public String toString() {
-		String ans = "";
+		StringBuilder ans = new StringBuilder();
 		
 		for (Element e: exp) {
-			ans += e.val + " ";
+			ans.append(e.val);
+			ans.append(" ");
 		}
-		System.out.println(exp.size());
-		return ans;
+
+		if (ans.length() > 0)
+			ans.deleteCharAt(ans.length() - 1);
+		
+		if (pendingOperator != null)
+			ans.append(" " + pendingOperator.val);
+		
+		
+		return ans.toString();
 	}
 }

@@ -10,11 +10,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import models.LowerArea;
-import models.upperarea.BasicUpperArea;
 import models.upperarea.UpperArea;
 
+/**
+ * Base controller class for calculator controller. 
+ * 
+ * @author Bin Chen
+ */
 public abstract class BaseCalculatorController extends BaseMainController {
-
 	protected DigitController digitContr;
 	@FXML protected DispController dispPaneController;
 	
@@ -28,41 +31,55 @@ public abstract class BaseCalculatorController extends BaseMainController {
 		lowerArea = new LowerArea();
 	}
 	
+	/**
+	 * Update the display area view.
+	 */
 	protected void updateView() {
 		dispPaneController.updateView();
 	}
 	
-	@FXML
-	public void processDigit(ActionEvent event) {
+	/**
+	 * Process the event for pressing digit buttons.
+	 * 
+	 * @param event				
+	 */
+	@FXML public void processDigit(ActionEvent event) {
 		digitContr.processDigit(event);
+		updateView();
 	}
 
-	@FXML
-	public void processPeriod() {
+	/**
+	 * 
+	 */
+	@FXML public void processPeriod() {
 		digitContr.processPeriod();
+		updateView();
 	}
 	
-	@FXML
-	public void clearEntry() {
+	@FXML public void clearEntry() {
 		digitContr.clearEntry();
+		updateView();
 	}
 	
-	@FXML
-	public void processBackspace() {
+	@FXML public void clearAll() {
+		digitContr.clearEntry();
+		upperArea.clear();
+		updateView();
+	}
+	
+	@FXML public void processBackspace() {
 		digitContr.processBackspace();
+		updateView();
 	}
 	
-	@FXML
-	public void submitNumber() {
+	@FXML public void submitNumber() {
 		lowerArea.submitNumber();
 		updateView();
 	}
 	
-	@FXML
-	public abstract void processFunc(ActionEvent event);
+	@FXML public abstract void processFunc(ActionEvent event);
 	
-	@FXML
-	public abstract void processOperator(ActionEvent event);
+	@FXML public abstract void processOperator(ActionEvent event);
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -70,7 +87,6 @@ public abstract class BaseCalculatorController extends BaseMainController {
 		
 		dispPaneController.setLowerArea(lowerArea);
 		dispPaneController.setUpperArea(upperArea);
-		digitContr = new DigitController(lowerArea, dispPaneController.getLowerDisp(), 
-				dispPaneController.getUpperDisp());
+		digitContr = new DigitController(lowerArea);
 	}
 }

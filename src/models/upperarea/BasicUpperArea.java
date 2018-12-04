@@ -13,4 +13,14 @@ public class BasicUpperArea extends BaseUpperArea {
 		
 	}
 
+	@Override
+	public void appendOperator(Element e) {
+		
+	}
+
+	@Override
+	public double evaluate() {
+		return 0;		
+	}
+
 }

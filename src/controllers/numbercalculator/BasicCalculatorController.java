@@ -4,19 +4,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import constants.Consts;
-import controllers.BaseMainController;
-import controllers.common.*;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
-import models.LowerArea;
 import models.upperarea.BasicUpperArea;
-import models.upperarea.UpperArea;
 
 /**
  * Controller for Basic Calculator.

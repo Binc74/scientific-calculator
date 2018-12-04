@@ -1,11 +1,11 @@
 package main;
 	
 import controllers.numbercalculator.BasicCalculatorController;
+import controllers.numbercalculator.ScientificCalculatorController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 /**
@@ -17,8 +17,8 @@ public class CalculatorMain extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/BasicView.fxml"));
-			BasicCalculatorController contr = new BasicCalculatorController(primaryStage);
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../views/ScientificView.fxml"));
+			ScientificCalculatorController contr = new ScientificCalculatorController(primaryStage);
 			loader.setController(contr);
 			Scene scene = new Scene(loader.load());
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

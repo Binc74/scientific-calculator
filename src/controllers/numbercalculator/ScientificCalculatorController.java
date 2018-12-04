@@ -4,15 +4,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import models.upperarea.BasicUpperArea;
+import models.elements.*;
+import models.upperarea.ScientificUpperArea;
 
 public class ScientificCalculatorController extends BaseCalculatorController {
 	public ScientificCalculatorController(Stage stage) {
 		super(stage);
 		
 		// Initialize upper and lower area
-		upperArea = new BasicUpperArea();
+		upperArea = new ScientificUpperArea();
 		upperArea.setLowerArea(lowerArea);
 		lowerArea.setUpperArea(upperArea);
 	}
@@ -24,7 +26,14 @@ public class ScientificCalculatorController extends BaseCalculatorController {
 	
 	@Override
 	public void processOperator(ActionEvent event) {
+		if (!lowerArea.isResult())
+			lowerArea.submitNumber();
 		
+		String op = ((Button) event.getSource()).getText();
+		upperArea.appendOperator(new Element(ElementType.OP, op));
+		lowerArea.setResult(upperArea.evaluate(), false);
+		
+		updateView();
 	}
 	
 	@Override

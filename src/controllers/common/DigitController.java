@@ -14,17 +14,9 @@ import models.LowerArea;
 public class DigitController {
 	
 	private LowerArea number;
-	private Label lower;
-	private Label upper;
 	
-	public DigitController(LowerArea number, Label lower, Label upper) {
+	public DigitController(LowerArea number) {
 		this.number = number;
-		this.lower = lower;
-		this.upper = upper;
-	}
-	
-	private void updateView() {
-		lower.setText(number.toString());
 	}
 	
 	/**
@@ -35,7 +27,6 @@ public class DigitController {
 	public void processDigit(ActionEvent event) {
 		String digit = ((Button) event.getSource()).getText();
 		number.addDigit(digit);
-		updateView();
 	}
 	
 	/**
@@ -43,7 +34,6 @@ public class DigitController {
 	 */
 	public void processPeriod() {
 		number.addPeriod();
-		updateView();
 	}
 	
 	/**
@@ -51,7 +41,6 @@ public class DigitController {
 	 */
 	public void clearEntry() {
 		number.clear();
-		updateView();
 	}
 	
 	/**
@@ -59,6 +48,5 @@ public class DigitController {
 	 */
 	public void processBackspace() {
 		number.backspace();
-		updateView();
 	}
 }

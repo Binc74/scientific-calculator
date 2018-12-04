@@ -12,7 +12,8 @@ import models.upperarea.UpperArea;
 public class LowerArea {	
 	private StringBuilder rep;		// The string representation of the number
 	private boolean hasPeriod;		// True if this number has period
-	private boolean isTemp;			// True if this number is set by previous result
+	private boolean isResult;		// True if this number is set by previous result
+	private boolean isFinalResult;	// True if this number is the final result
 	private boolean isNegative;		// True if this number is negative
 	
 	private UpperArea upperArea;
@@ -20,8 +21,16 @@ public class LowerArea {
 	public LowerArea() {
 		rep = new StringBuilder();
 		hasPeriod = false;
-		isTemp = false;
+		isResult = false;
+		isFinalResult = false;
 		isNegative = false;
+	}
+	
+	/**
+	 * A getter method.
+	 */
+	public boolean isResult() {
+		return isResult || isFinalResult;
 	}
 	
 	/**
@@ -45,13 +54,13 @@ public class LowerArea {
 	 * @param digit				the digit to be add
 	 */
 	public void addDigit(String digit) {
-		if (isTemp) {
+		if (isResult) {
 			reset();
 		}
 		
 		rep.append(digit);
 		
-		isTemp = false;
+		isResult = false;
 	}
 	
 	/**
@@ -81,6 +90,9 @@ public class LowerArea {
 		if (rep.length() == 0)
 			isNegative = false;
 		else {
+			if (rep.charAt(rep.length() - 1) == '.')
+				hasPeriod = false;
+			
 			rep.deleteCharAt(rep.length() - 1);
 		}
 	}
@@ -90,12 +102,30 @@ public class LowerArea {
 	 */
 	public void submitNumber() {
 		String val = rep.toString();
-		if (isNegative)
-			val = "-" + val;
+		
+		if (val.length() == 0) val = "0";
+		if (isNegative) val = "-" + val;
 		
 		Element e = new Element(ElementType.NUMBER, val);
 		reset();
 		upperArea.append(e);
+	}
+	
+	/**
+	 * Set the value according to the result.
+	 * 
+	 * @param result				the result
+	 * @param isFinalResult			true if the result is the final result
+	 */
+	public void setResult(double result, boolean isFinalResult) {
+		rep = new StringBuilder();
+		if (result < 0)
+			isNegative = true;
+		else
+			isNegative = false;
+		
+		isResult = true;
+		this.isFinalResult = isFinalResult;
 	}
 	
 	@Override
