@@ -84,6 +84,8 @@ public class BasicCalculatorController extends BaseController {
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
 		
+		menuPaneController.setCurrType("Basic");
+		
 		dispPaneController.setLowerArea(lowerArea);
 		dispPaneController.setUpperArea(upperArea);
 		digitContr = new DigitController(lowerArea, dispPaneController.getLowerDisp(), 

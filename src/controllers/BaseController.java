@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import controllers.common.CoreEventController;
+import controllers.common.MenuController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
@@ -16,8 +17,8 @@ import javafx.stage.Stage;
 public abstract class BaseController implements Initializable {
 	protected Stage stage;
 	
-	@FXML
-	private CoreEventController topPaneController;
+	@FXML protected CoreEventController topPaneController;
+	@FXML protected MenuController menuPaneController;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
