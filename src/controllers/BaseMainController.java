@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  * 
  * @author Bin Chen
  */
-public abstract class BaseController implements Initializable {
+public abstract class BaseMainController implements Initializable {
 	protected Stage stage;
 	
 	@FXML protected CoreEventController topPaneController;

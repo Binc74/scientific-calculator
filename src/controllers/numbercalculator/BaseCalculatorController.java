@@ -1,46 +1,34 @@
-package controllers;
+package controllers.numbercalculator;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import constants.Consts;
-import controllers.common.*;
+import controllers.BaseMainController;
+import controllers.common.DigitController;
+import controllers.common.DispController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import models.LowerArea;
 import models.upperarea.BasicUpperArea;
 import models.upperarea.UpperArea;
 
-/**
- * Controller for Basic Calculator.
- * 
- * @author Bin Chen
- */
-public class BasicCalculatorController extends BaseController {
+public abstract class BaseCalculatorController extends BaseMainController {
+
+	protected DigitController digitContr;
+	@FXML protected DispController dispPaneController;
 	
-	private DigitController digitContr;
-	@FXML private DispController dispPaneController;
+	protected UpperArea upperArea;
+	protected LowerArea lowerArea;
 	
-	private UpperArea upperArea;
-	private LowerArea lowerArea;
-	
-	public BasicCalculatorController(Stage stage) {
+	public BaseCalculatorController(Stage stage) {
+		super();
 		this.stage = stage;
 		
-		// Initialize upper and lower area
-		upperArea = new BasicUpperArea();
 		lowerArea = new LowerArea();
-		upperArea.setLowerArea(lowerArea);
-		lowerArea.setUpperArea(upperArea);
 	}
 	
-	private void updateView() {
+	protected void updateView() {
 		dispPaneController.updateView();
 	}
 	
@@ -71,20 +59,14 @@ public class BasicCalculatorController extends BaseController {
 	}
 	
 	@FXML
-	public void processFunc(ActionEvent event) {
-		
-	}
+	public abstract void processFunc(ActionEvent event);
 	
 	@FXML
-	public void processOperator(ActionEvent event) {
-		
-	}
+	public abstract void processOperator(ActionEvent event);
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
-		
-		menuPaneController.setCurrType("Basic");
 		
 		dispPaneController.setLowerArea(lowerArea);
 		dispPaneController.setUpperArea(upperArea);

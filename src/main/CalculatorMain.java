@@ -1,6 +1,6 @@
 package main;
 	
-import controllers.BasicCalculatorController;
+import controllers.numbercalculator.BasicCalculatorController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
