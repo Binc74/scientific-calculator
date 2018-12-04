@@ -17,6 +17,7 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" stylesheets="@../stylesheets/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <fx:include fx:id="topPane" source="components/TopPane.fxml" />
+      <fx:include fx:id="menuPane" source="components/MenuPane.fxml" />
       <fx:include fx:id="dispPane" source="components/DispPane.fxml" />
       <fx:include fx:id="histPane" source="components/HistoryPane.fxml" />
       <GridPane alignment="CENTER" hgap="5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0">
