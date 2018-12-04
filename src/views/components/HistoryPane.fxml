@@ -25,7 +25,7 @@
       <Pane prefHeight="200.0" prefWidth="200.0" />
       <Button minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="MS" />
       <Pane prefHeight="200.0" prefWidth="200.0" />
-      <Button minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="M.">
+      <Button minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="M &amp;#9660;">
          <HBox.margin>
             <Insets right="5.0" />
          </HBox.margin>

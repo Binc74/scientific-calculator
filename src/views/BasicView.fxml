@@ -37,7 +37,7 @@
          <children>
             <Button contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="\%" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="√" GridPane.columnIndex="1" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="x^2" GridPane.columnIndex="2" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="x²" GridPane.columnIndex="2" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="1/x" GridPane.columnIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearEntry" text="CE" GridPane.rowIndex="1" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="C" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -52,7 +52,7 @@
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processBackspace" text="⌫" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="÷" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="X" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="×" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="6" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="1" GridPane.rowIndex="4" />
