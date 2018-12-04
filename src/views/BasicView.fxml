@@ -17,23 +17,7 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="500.0" stylesheets="@../stylesheets/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <fx:include fx:id="topPane" source="components/TopPane.fxml" />
-      <VBox minWidth="-Infinity" prefHeight="100.0" prefWidth="500.0" spacing="5.0">
-         <children>
-            <Label fx:id="upperText" alignment="TOP_RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="440.0" textAlignment="RIGHT">
-               <VBox.margin>
-                  <Insets left="30.0" right="30.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
-            <Label fx:id="lowerText" alignment="CENTER_RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="440.0" textAlignment="RIGHT">
-               <VBox.margin>
-                  <Insets left="30.0" right="30.0" />
-               </VBox.margin>
-            </Label>
-         </children>
-      </VBox>
+      <fx:include fx:id="dispPane" source="components/DispPane.fxml" />
       <fx:include fx:id="histPane" source="components/HistoryPane.fxml" />
       <GridPane alignment="CENTER" hgap="5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0">
         <columnConstraints>

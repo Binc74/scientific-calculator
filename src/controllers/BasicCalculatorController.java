@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 
 import constants.Consts;
 import controllers.common.*;
-import factories.BasicNodeFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -26,13 +25,10 @@ import models.upperarea.UpperArea;
 public class BasicCalculatorController extends BaseController {
 	
 	private DigitController digitContr;
-	private BasicNodeFactory nf;
+	@FXML private DispController dispPaneController;
 	
 	private UpperArea upperArea;
 	private LowerArea lowerArea;
-	
-	@FXML private Label upperText;
-	@FXML private Label lowerText;
 	
 	public BasicCalculatorController(Stage stage) {
 		this.stage = stage;
@@ -42,12 +38,10 @@ public class BasicCalculatorController extends BaseController {
 		lowerArea = new LowerArea();
 		upperArea.setLowerArea(lowerArea);
 		lowerArea.setUpperArea(upperArea);
-		nf = new BasicNodeFactory();
 	}
 	
 	private void updateView() {
-		lowerText.setText(lowerArea.toString());
-		upperText.setText(upperArea.toString());
+		dispPaneController.updateView();
 	}
 	
 	@FXML
@@ -90,9 +84,9 @@ public class BasicCalculatorController extends BaseController {
 	public void initialize(URL location, ResourceBundle resources) {
 		super.initialize(location, resources);
 		
-		digitContr = new DigitController(lowerArea, lowerText, upperText);
-		lowerText.setTextFill(Consts.NORMAL_COLOR);
-		lowerText.setFont(new Font(Consts.FONT_NAME, Consts.LOWER_FONT_SIZE));
-		lowerText.setText(Consts.INIT_VALUE);
+		dispPaneController.setLowerArea(lowerArea);
+		dispPaneController.setUpperArea(upperArea);
+		digitContr = new DigitController(lowerArea, dispPaneController.getLowerDisp(), 
+				dispPaneController.getUpperDisp());
 	}
 }
