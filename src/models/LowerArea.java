@@ -30,7 +30,14 @@ public class LowerArea {
 	 * A getter method.
 	 */
 	public boolean isResult() {
-		return isResult || isFinalResult;
+		return isResult;
+	}
+	
+	/**
+	 * A getter method.
+	 */
+	public boolean isFinalResult() {
+		return isFinalResult;
 	}
 	
 	/**
@@ -111,6 +118,12 @@ public class LowerArea {
 		upperArea.append(e);
 	}
 	
+	/**
+	 * Trim all unnecessary zeros.
+	 * 
+	 * @param str					the string to be trim
+	 * @return						the result string
+	 */
 	public String trimZeros(String str) {
 		int pos = str.length() - 1;
 		
@@ -136,6 +149,9 @@ public class LowerArea {
 		
 		// Trim all 0 at the end of the decimal number
 		String str = Double.toString(result);
+		
+		if (isNegative)
+			str = str.substring(1);
 		
 		if (str.indexOf('.') >= 0)
 			hasPeriod = true;

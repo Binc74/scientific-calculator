@@ -42,8 +42,8 @@
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="π" GridPane.rowIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="n!" GridPane.rowIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="±" GridPane.rowIndex="5" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="(" GridPane.rowIndex="6" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text=")" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processLeftParen" text="(" GridPane.rowIndex="6" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processRightParen" text=")" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="1" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="4" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="7" GridPane.columnIndex="1" GridPane.rowIndex="3" />

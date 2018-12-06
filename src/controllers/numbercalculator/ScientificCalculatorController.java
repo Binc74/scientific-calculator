@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import models.elements.*;
@@ -26,7 +27,7 @@ public class ScientificCalculatorController extends BaseCalculatorController {
 	
 	@Override
 	public void processOperator(String origin, String op) {
-		if (!lowerArea.isResult())
+		if (!lowerArea.isResult() || lowerArea.isFinalResult())
 			lowerArea.submitNumber();
 		
 		upperArea.appendOperator(new Element(ElementType.OP, origin, op));
@@ -40,5 +41,18 @@ public class ScientificCalculatorController extends BaseCalculatorController {
 		super.initialize(location, resources);
 		
 		menuPaneController.setCurrType("Scientific");
+	}
+	
+	@FXML public void processLeftParen() {
+		((ScientificUpperArea) upperArea).addLeftParen();
+		updateView();
+	}
+	
+	@FXML public void processRightParen() {
+		if (!lowerArea.isResult() || lowerArea.isFinalResult())
+			lowerArea.submitNumber();
+		
+		((ScientificUpperArea) upperArea).addRightParen();
+		updateView();
 	}
 }
