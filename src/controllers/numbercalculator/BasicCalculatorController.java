@@ -29,7 +29,7 @@ public class BasicCalculatorController extends BaseCalculatorController {
 	}
 	
 	@Override
-	public void processOperator(ActionEvent event) {
+	public void processOperator(String origin, String op) {
 		
 	}
 	

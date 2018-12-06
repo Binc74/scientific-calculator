@@ -25,12 +25,11 @@ public class ScientificCalculatorController extends BaseCalculatorController {
 	}
 	
 	@Override
-	public void processOperator(ActionEvent event) {
+	public void processOperator(String origin, String op) {
 		if (!lowerArea.isResult())
 			lowerArea.submitNumber();
 		
-		String op = ((Button) event.getSource()).getText();
-		upperArea.appendOperator(new Element(ElementType.OP, op));
+		upperArea.appendOperator(new Element(ElementType.OP, origin, op));
 		lowerArea.setResult(upperArea.evaluate(), false);
 		
 		updateView();

@@ -1,17 +1,22 @@
 package models.upperarea;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 import models.elements.Element;
 import models.elements.ElementType;
+import util.Calculation;
 
 public class ScientificUpperArea extends BaseUpperArea {
 	private Stack<Integer> parenPos;				// Use to keep track with the position of parenthesis
 	private int lastLeftParen;
 	
+	private Calculation calculation;
+	
 	public ScientificUpperArea() {
 		super();
 		
+		calculation = new Calculation();
 		parenPos = new Stack<> ();
 		lastLeftParen = 0;
 	}
@@ -36,15 +41,17 @@ public class ScientificUpperArea extends BaseUpperArea {
 	@Override
 	public void append(Element e) {
 		if (pendingOperator != null) {
-			exp.push(pendingOperator);		
+			exp.addLast(pendingOperator);		
 			pendingOperator = null;
 		}
 		
-		exp.push(e);
+		exp.addLast(e);
 	}
 
 	@Override
 	public double evaluate() {
-		return 0;		
+		LinkedList<Element> temp = new LinkedList<> ();
+		temp.addAll(exp);
+		return calculation.calculateExpression(temp);
 	}
 }

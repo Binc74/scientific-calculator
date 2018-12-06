@@ -37,7 +37,7 @@
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="cos" GridPane.columnIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="Exp" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="tan" GridPane.columnIndex="4" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="Mod" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processMod" text="Mod" GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="upar" GridPane.rowIndex="2" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="π" GridPane.rowIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="n!" GridPane.rowIndex="4" />
@@ -50,17 +50,17 @@
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearEntry" text="CE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearAll" text="C" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processBackspace" text="⌫" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="÷" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDivide" text="÷" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="8" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="5" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="2" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="9" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="6" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="×" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="-" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processMult" text="×" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processMinus" text="-" GridPane.columnIndex="4" GridPane.rowIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processDigit" text="3" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processOperator" text="+" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processAdd" text="+" GridPane.columnIndex="4" GridPane.rowIndex="5" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processPeriod" text="." GridPane.columnIndex="3" GridPane.rowIndex="6" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#submitNumber" text="=" GridPane.columnIndex="4" GridPane.rowIndex="6" />
          </children>

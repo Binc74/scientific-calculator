@@ -8,6 +8,7 @@ import controllers.common.DigitController;
 import controllers.common.DispController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import models.LowerArea;
 import models.upperarea.UpperArea;
@@ -79,7 +80,31 @@ public abstract class BaseCalculatorController extends BaseMainController {
 	
 	@FXML public abstract void processFunc(ActionEvent event);
 	
-	@FXML public abstract void processOperator(ActionEvent event);
+	public abstract void processOperator(String origin, String op);
+	
+	protected String getButtonStr(ActionEvent e) {
+		return ((Button) e.getSource()).getText();
+	}
+	
+	@FXML public void processAdd(ActionEvent event) {
+		processOperator(getButtonStr(event), "+");
+	}
+	
+	@FXML public void processMinus(ActionEvent event) {
+		processOperator(getButtonStr(event), "-");
+	}
+	
+	@FXML public void processMult(ActionEvent event) {
+		processOperator(getButtonStr(event), "*");
+	}
+	
+	@FXML public void processDivide(ActionEvent event) {
+		processOperator(getButtonStr(event), "/");
+	}
+	
+	@FXML public void processMod(ActionEvent event) {
+		processOperator(getButtonStr(event), "Mod");
+	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

@@ -106,9 +106,19 @@ public class LowerArea {
 		if (val.length() == 0) val = "0";
 		if (isNegative) val = "-" + val;
 		
-		Element e = new Element(ElementType.NUMBER, val);
+		Element e = new Element(ElementType.NUMBER, val, val);
 		reset();
 		upperArea.append(e);
+	}
+	
+	public String trimZeros(String str) {
+		int pos = str.length() - 1;
+		
+		while (pos >= 0 && (str.charAt(pos) == '0' || str.charAt(pos) == '.')) {
+			pos--;
+		}
+		
+		return str.substring(0, pos+1);
 	}
 	
 	/**
@@ -123,6 +133,18 @@ public class LowerArea {
 			isNegative = true;
 		else
 			isNegative = false;
+		
+		// Trim all 0 at the end of the decimal number
+		String str = Double.toString(result);
+		
+		if (str.indexOf('.') >= 0)
+			hasPeriod = true;
+		
+		if (hasPeriod) {
+			str = trimZeros(str);
+		}
+				
+		rep.append(str);
 		
 		isResult = true;
 		this.isFinalResult = isFinalResult;

@@ -36,6 +36,7 @@ public abstract class BaseUpperArea implements UpperArea {
 	
 	public void clear() {
 		exp.clear();
+		pendingOperator = null;
 	}
 	
 	public abstract void appendOperator(Element e);
@@ -47,7 +48,7 @@ public abstract class BaseUpperArea implements UpperArea {
 		StringBuilder ans = new StringBuilder();
 		
 		for (Element e: exp) {
-			ans.append(e.val);
+			ans.append(e.rep);
 			ans.append(" ");
 		}
 
@@ -55,7 +56,7 @@ public abstract class BaseUpperArea implements UpperArea {
 			ans.deleteCharAt(ans.length() - 1);
 		
 		if (pendingOperator != null)
-			ans.append(" " + pendingOperator.val);
+			ans.append(" " + pendingOperator.rep);
 		
 		
 		return ans.toString();
