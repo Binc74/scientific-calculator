@@ -12,6 +12,6 @@ Label {
 	-fx-text-fill: white
 }
 
-GridPane Button {
-	-fx-font-size: 20px
+#upperDisp {
+	-fx-text-fill: grey
 }
