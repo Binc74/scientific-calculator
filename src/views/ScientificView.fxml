@@ -99,7 +99,7 @@
                </font></Button>
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processAdd" text="+" GridPane.columnIndex="4" GridPane.rowIndex="5" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processPeriod" text="." GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#submitNumber" text="=" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#submitExpr" text="=" GridPane.columnIndex="4" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </children>

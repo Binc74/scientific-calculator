@@ -129,6 +129,11 @@ public class LowerArea {
 		
 		while (pos >= 0 && (str.charAt(pos) == '0' || str.charAt(pos) == '.')) {
 			pos--;
+			
+			if (str.charAt(pos) == '.') {
+				pos--;
+				break;
+			}
 		}
 		
 		return str.substring(0, pos+1);

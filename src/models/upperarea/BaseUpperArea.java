@@ -1,5 +1,6 @@
 package models.upperarea;
 
+import java.util.Deque;
 import java.util.LinkedList;
 
 import models.LowerArea;
@@ -14,7 +15,7 @@ import models.elements.Element;
 public abstract class BaseUpperArea implements UpperArea {	
 	private LowerArea lowerArea;
 	
-	public LinkedList<Element> exp;
+	public Deque<Element> exp;
 
 	protected Element pendingOperator;
 	

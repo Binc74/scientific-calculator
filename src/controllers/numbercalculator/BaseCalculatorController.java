@@ -73,9 +73,10 @@ public abstract class BaseCalculatorController extends BaseMainController {
 		updateView();
 	}
 	
-	@FXML public void submitNumber() {
+	@FXML public void submitExpr() {
 		lowerArea.submitNumber();
-		lowerArea.setResult(upperArea.evaluate(), false);
+		lowerArea.setResult(upperArea.evaluate(), true);
+		upperArea.clear();
 		updateView();
 	}
 	
