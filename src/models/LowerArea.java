@@ -163,6 +163,9 @@ public class LowerArea {
 		
 		if (hasPeriod) {
 			str = trimZeros(str);
+			
+			if (str.indexOf('.') < 0)
+				hasPeriod = false;
 		}
 				
 		rep.append(str);

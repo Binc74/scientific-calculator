@@ -47,8 +47,6 @@ public class ScientificUpperArea extends BaseUpperArea {
 		}
 		
 		return sublistStartFrom(0);
-		
-		
 	}
 	
 	public void addLeftParen() {

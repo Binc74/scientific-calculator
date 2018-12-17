@@ -3,6 +3,7 @@ package controllers.numbercalculator;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import constants.Consts;
 import controllers.BaseMainController;
 import controllers.common.DigitController;
 import controllers.common.DispController;
@@ -89,23 +90,23 @@ public abstract class BaseCalculatorController extends BaseMainController {
 	}
 	
 	@FXML public void processAdd(ActionEvent event) {
-		processOperator(getButtonStr(event), "+");
+		processOperator(getButtonStr(event), Consts.ADD);
 	}
 	
 	@FXML public void processMinus(ActionEvent event) {
-		processOperator(getButtonStr(event), "-");
+		processOperator(getButtonStr(event), Consts.MINUS);
 	}
 	
 	@FXML public void processMult(ActionEvent event) {
-		processOperator(getButtonStr(event), "*");
+		processOperator(getButtonStr(event), Consts.MULTI);
 	}
 	
 	@FXML public void processDivide(ActionEvent event) {
-		processOperator(getButtonStr(event), "/");
+		processOperator(getButtonStr(event), Consts.DIVIDE);
 	}
 	
 	@FXML public void processMod(ActionEvent event) {
-		processOperator(getButtonStr(event), "Mod");
+		processOperator(getButtonStr(event), Consts.MOD);
 	}
 	
 	@Override
