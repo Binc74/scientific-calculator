@@ -21,12 +21,24 @@ public class ScientificCalculatorController extends BaseCalculatorController {
 	}
 	
 	@Override
+	public void processDigit(ActionEvent event) {
+		((ScientificUpperArea) upperArea).removeUnnecessaryData();
+		super.processDigit(event);
+	}
+	
+	@Override
+	public void processPeriod() {
+		((ScientificUpperArea) upperArea).removeUnnecessaryData();
+		super.processPeriod();
+	}
+	
+	@Override
 	public void processFunc(ActionEvent event) {
 		
 	}
 	
 	@Override
-	public void processOperator(String origin, String op) {
+	public void processOperator(String origin, String op) {		
 		if (!lowerArea.isResult() || lowerArea.isFinalResult())
 			lowerArea.submitNumber();
 		

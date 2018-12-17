@@ -8,8 +8,8 @@ import models.elements.ElementType;
 import util.Calculation;
 
 public class ScientificUpperArea extends BaseUpperArea {
-	private Stack<Integer> parenPos;				// Use to keep track with the position of parenthesis
-	private int lastLeftParen;
+	private Stack<Integer> parenPos;		// Use to keep track with the position of rhe left parenthesis
+	private int lastLeftParen;				// The last position of the left parenthesis
 	
 	private Calculation calculation;
 	
@@ -65,6 +65,17 @@ public class ScientificUpperArea extends BaseUpperArea {
 	public void addRightParen() {
 		exp.addLast(new Element(ElementType.RIGHT_PAREN, ")", ")"));
 		lastLeftParen = parenPos.pop();
+	}
+	
+	public void removeUnnecessaryData() {
+		// If end with right paren, the content within the last set of paren should be delete
+		if (endWithRightParen()) {
+			Element temp = exp.removeLast();
+			
+			while (temp.type != ElementType.LEFT_PAREN) {
+				temp = exp.removeLast();
+			}
+		}
 	}
 	
 	@Override
