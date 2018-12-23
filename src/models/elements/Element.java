@@ -19,6 +19,7 @@ public class Element {
 		MOD,
 		DIVIDE,
 		POWER,
+		NEG,
 		TENX,
 		LOG,
 		TAN,

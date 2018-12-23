@@ -39,7 +39,7 @@ public class Calculation {
 	 * sub-factor -> param | function 
 	 * param -> ( expr )
 	 * function -> func param )
-	 * func -> neg( | root( | log( | 10^( | sin( | cos( | 
+	 * func -> neg( | root( | log( | 10^( | sin( | cos( | ...
 	 * addOp -> + | -
 	 * multOp -> * | / | % | ^
 	 * 
@@ -177,9 +177,45 @@ public class Calculation {
 			System.err.println("error: can't find ')'");
 		
 		switch (func) {
-			
+		case NEG:
+			return -param;
+		case TENX:
+			return Math.pow(10, param);
+		case LOG:
+			return Math.log10(param);
+		case TAN:
+			return Math.tan(param);
+		case SIN:
+			return Math.sin(param);
+		case COS:
+			return Math.cos(param);
+		case SQUARE:
+			return param * param;
+		case ROOT:
+			return Math.sqrt(param);
+		case FACTORIAL:
+			return factorial((int) Math.floor(param));
+		default:
+			System.err.println("error: can't find the function");
+			break;
 		}
 		
-		return param;
+		return 0;
+	}
+	
+	private int factorial(int num) {
+		int ans = 1;
+		
+		for (int i = 1; i <= num; ++i) {
+			int temp = ans * i;
+			
+			// Check overflow
+			if (temp < ans)
+				return -1;
+			
+			ans = temp;
+		}
+		
+		return ans;
 	}
 }
