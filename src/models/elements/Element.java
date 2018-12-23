@@ -18,7 +18,15 @@ public class Element {
 		MULT,
 		MOD,
 		DIVIDE,
-		POWER
+		POWER,
+		TENX,
+		LOG,
+		TAN,
+		COS,
+		SIN,
+		SQUARE,
+		ROOT,
+		FACTORIAL
 	}
 	
 	public Type type;

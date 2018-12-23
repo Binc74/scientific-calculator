@@ -20,7 +20,7 @@ public class ScientificUpperArea extends BaseUpperArea {
 		lastLeftParen = 0;
 	}
 	
-	private boolean endWithRightParen() {
+	public boolean endWithRightParen() {
 		return exp.size() > 0 && pendingOperator == null && 
 				exp.getLast().type == Element.Type.RIGHT_PAREN;
 	}
@@ -48,15 +48,27 @@ public class ScientificUpperArea extends BaseUpperArea {
 		return sublistStartFrom(0);
 	}
 	
-	public void addLeftParen() {
+	public void addLeftParen(Element func, Integer pos) {
 		if (pendingOperator != null) {
 			exp.addLast(pendingOperator);
 			pendingOperator = null;
 		}
 		
-		exp.addLast(new Element(Element.Type.LEFT_PAREN, "("));
+		int currParenPos = exp.size();
 		
-		int currParenPos = exp.size() - 1;
+		if (func == null && pos == null) {
+			exp.addLast(new Element(Element.Type.LEFT_PAREN, "("));
+		} else if (pos == null) {
+			exp.addLast(func);
+		} else {
+			for (int i = pos; i < parenPos.size(); ++i) {
+				parenPos.set(i, parenPos.get(i) + 1);
+			}
+			
+			exp.set(pos, func);
+			currParenPos = pos;
+		}
+		
 		parenPos.push(currParenPos);
 		lastLeftParen = currParenPos;
 	}
@@ -64,6 +76,15 @@ public class ScientificUpperArea extends BaseUpperArea {
 	public void addRightParen() {
 		exp.addLast(new Element(Element.Type.RIGHT_PAREN, ")"));
 		lastLeftParen = parenPos.pop();
+	}
+	
+	public void addFunction(Element func) {
+		if (exp.get(lastLeftParen).type == Element.Type.LEFT_PAREN) {
+			exp.set(lastLeftParen, func);
+		} else {
+			
+			
+		}
 	}
 	
 	public void removeUnnecessaryData() {

@@ -103,6 +103,12 @@ public class LowerArea {
 		}
 	}
 	
+	public void addFunction(Element func) {
+		upperArea.append(func);
+		submitNumber();
+		upperArea.append(new Element(Element.Type.RIGHT_PAREN, ")"));
+	}
+	
 	/**
 	 * Submit the number to upper area.
 	 */

@@ -25,7 +25,7 @@ public class BasicCalculatorController extends BaseCalculatorController {
 	}
 	
 	@Override
-	public void processFunc(ActionEvent event) {
+	public void processFunc(Element.SubType subType, String rep) {
 		
 	}
 	

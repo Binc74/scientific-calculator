@@ -29,25 +29,25 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="x²" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="xʸ" GridPane.columnIndex="1">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processSquare" text="x²" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processPower" text="xʸ" GridPane.columnIndex="1">
                <font>
                   <Font name="Arial Italic" size="15.0" />
                </font></Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="√" GridPane.rowIndex="1" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="10ˣ" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processRoot" text="√" GridPane.rowIndex="1" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#process10x" text="10ˣ" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="System Italic" size="15.0" />
                </font></Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="sin" GridPane.columnIndex="2" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="log" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="cos" GridPane.columnIndex="3" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="Exp" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="tan" GridPane.columnIndex="4" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processSin" text="sin" GridPane.columnIndex="2" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processLog" text="log" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processCos" text="cos" GridPane.columnIndex="3" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Exp" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processTan" text="tan" GridPane.columnIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processMod" text="Mod" GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="🡡" GridPane.rowIndex="2" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="π" GridPane.rowIndex="3" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFunc" text="n!" GridPane.rowIndex="4" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processFactorial" text="n!" GridPane.rowIndex="4" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="±" GridPane.rowIndex="5" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processLeftParen" text="(" GridPane.rowIndex="6" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#processRightParen" text=")" GridPane.columnIndex="1" GridPane.rowIndex="6" />

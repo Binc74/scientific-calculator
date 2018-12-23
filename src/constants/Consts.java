@@ -14,5 +14,5 @@ public class Consts {
 	public static final String FONT_NAME = "Arial";
 	public static final int LOWER_FONT_SIZE = 50;
 	public static final int UPPER_FONT_SIZE = 30;
-	
+
 }

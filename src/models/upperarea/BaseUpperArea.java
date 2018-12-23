@@ -15,7 +15,7 @@ import models.lowerarea.LowerArea;
 public abstract class BaseUpperArea implements UpperArea {	
 	private LowerArea lowerArea;
 	
-	public Deque<Element> exp;
+	public LinkedList<Element> exp;
 
 	protected Element pendingOperator;
 	

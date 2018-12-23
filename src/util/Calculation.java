@@ -76,7 +76,7 @@ public class Calculation {
 				val -= val2;
 				break;
 			default:
-				
+				System.err.println("error: can't find add-op");
 				break;
 			}
 		}
@@ -109,6 +109,9 @@ public class Calculation {
 				break;
 			case POWER:
 				val = Math.pow(val, val2);
+				break;
+			default:
+				System.err.println("error: can't find multi-op");
 				break;
 			}
 		}
@@ -174,7 +177,7 @@ public class Calculation {
 			System.err.println("error: can't find ')'");
 		
 		switch (func) {
-		
+			
 		}
 		
 		return param;

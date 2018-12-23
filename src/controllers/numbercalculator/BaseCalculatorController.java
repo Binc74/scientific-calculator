@@ -82,7 +82,7 @@ public abstract class BaseCalculatorController extends BaseMainController {
 		updateView();
 	}
 	
-	@FXML public abstract void processFunc(ActionEvent event);
+	public abstract void processFunc(Element.SubType subType, String rep);
 	
 	public abstract void processOperator(Element.SubType subType, String rep);
 	
@@ -108,7 +108,7 @@ public abstract class BaseCalculatorController extends BaseMainController {
 	
 	@FXML public void processMod(ActionEvent event) {
 		processOperator(Element.SubType.MOD, getButtonStr(event));
-	}
+	}	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

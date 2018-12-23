@@ -3,6 +3,7 @@ package controllers.numbercalculator;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import constants.Consts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,30 +12,42 @@ import models.elements.*;
 import models.upperarea.ScientificUpperArea;
 
 public class ScientificCalculatorController extends BaseCalculatorController {
+	private ScientificUpperArea ua;
+	
 	public ScientificCalculatorController(Stage stage) {
 		super(stage);
 		
 		// Initialize upper and lower area
 		upperArea = new ScientificUpperArea();
-		upperArea.setLowerArea(lowerArea);
-		lowerArea.setUpperArea(upperArea);
+		ua = (ScientificUpperArea) upperArea;
+		ua.setLowerArea(lowerArea);
+		lowerArea.setUpperArea(ua);
 	}
 	
 	@Override
 	public void processDigit(ActionEvent event) {
-		((ScientificUpperArea) upperArea).removeUnnecessaryData();
+		ua.removeUnnecessaryData();
 		super.processDigit(event);
 	}
 	
 	@Override
 	public void processPeriod() {
-		((ScientificUpperArea) upperArea).removeUnnecessaryData();
+		ua.removeUnnecessaryData();
 		super.processPeriod();
 	}
 	
 	@Override
-	public void processFunc(ActionEvent event) {
+	public void processFunc(Element.SubType subType, String rep) {
+		Element func = new Element(Element.Type.FUNC, subType, rep);
 		
+		if (ua.endWithRightParen())
+			ua.addFunction(func);
+		else
+			lowerArea.addFunction(func);
+			
+		lowerArea.setResult(ua.evaluate(), false);
+		
+		updateView();
 	}
 	
 	@Override
@@ -42,8 +55,8 @@ public class ScientificCalculatorController extends BaseCalculatorController {
 		if (!lowerArea.isResult() || lowerArea.isFinalResult())
 			lowerArea.submitNumber();
 		
-		upperArea.appendOperator(new Element(Element.Type.OP, subType, rep));
-		lowerArea.setResult(upperArea.evaluate(), false);
+		ua.appendOperator(new Element(Element.Type.OP, subType, rep));
+		lowerArea.setResult(ua.evaluate(), false);
 		
 		updateView();
 	}
@@ -56,7 +69,7 @@ public class ScientificCalculatorController extends BaseCalculatorController {
 	}
 	
 	@FXML public void processLeftParen() {
-		((ScientificUpperArea) upperArea).addLeftParen();
+		ua.addLeftParen(null, null);
 		updateView();
 	}
 	
@@ -64,7 +77,43 @@ public class ScientificCalculatorController extends BaseCalculatorController {
 		if (!lowerArea.isResult() || lowerArea.isFinalResult())
 			lowerArea.submitNumber();
 		
-		((ScientificUpperArea) upperArea).addRightParen();
+		ua.addRightParen();
 		updateView();
+	}
+	
+	@FXML public void process10x() {
+		processFunc(Element.SubType.TENX, "10^(");
+	}
+	
+	@FXML public void processLog() {
+		processFunc(Element.SubType.LOG, "log(");
+	}
+	
+	@FXML public void processPower() {
+		processOperator(Element.SubType.POWER, "^");
+	}
+	
+	@FXML public void processTan() {
+		processFunc(Element.SubType.TAN, "tan(");
+	}
+	
+	@FXML public void processCos() {
+		processFunc(Element.SubType.COS, "cos(");
+	}
+	
+	@FXML public void processSin() {
+		processFunc(Element.SubType.SIN, "sin(");
+	}
+	
+	@FXML public void processSquare() {
+		processFunc(Element.SubType.SQUARE, "sqr(");
+	}
+	
+	@FXML public void processFactorial() {
+		processFunc(Element.SubType.FACTORIAL, "fact(");
+	}
+	
+	@FXML public void processRoot() {
+		processFunc(Element.SubType.ROOT, "root(");
 	}
 }
