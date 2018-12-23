@@ -11,7 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import models.LowerArea;
+import models.elements.Element;
+import models.lowerarea.LowerArea;
 import models.upperarea.UpperArea;
 
 /**
@@ -83,30 +84,30 @@ public abstract class BaseCalculatorController extends BaseMainController {
 	
 	@FXML public abstract void processFunc(ActionEvent event);
 	
-	public abstract void processOperator(String origin, String op);
+	public abstract void processOperator(Element.SubType subType, String rep);
 	
 	protected String getButtonStr(ActionEvent e) {
 		return ((Button) e.getSource()).getText();
 	}
 	
 	@FXML public void processAdd(ActionEvent event) {
-		processOperator(getButtonStr(event), Consts.ADD);
+		processOperator(Element.SubType.ADD, getButtonStr(event));
 	}
 	
 	@FXML public void processMinus(ActionEvent event) {
-		processOperator(getButtonStr(event), Consts.MINUS);
+		processOperator(Element.SubType.MINUS, getButtonStr(event));
 	}
 	
 	@FXML public void processMult(ActionEvent event) {
-		processOperator(getButtonStr(event), Consts.MULTI);
+		processOperator(Element.SubType.MULT, getButtonStr(event));
 	}
 	
 	@FXML public void processDivide(ActionEvent event) {
-		processOperator(getButtonStr(event), Consts.DIVIDE);
+		processOperator(Element.SubType.DIVIDE, getButtonStr(event));
 	}
 	
 	@FXML public void processMod(ActionEvent event) {
-		processOperator(getButtonStr(event), Consts.MOD);
+		processOperator(Element.SubType.MOD, getButtonStr(event));
 	}
 	
 	@Override

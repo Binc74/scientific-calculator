@@ -3,8 +3,8 @@ package models.upperarea;
 import java.util.Deque;
 import java.util.LinkedList;
 
-import models.LowerArea;
 import models.elements.Element;
+import models.lowerarea.LowerArea;
 
 
 /**

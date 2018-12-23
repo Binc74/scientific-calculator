@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import constants.Consts;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+import models.elements.Element;
 import models.upperarea.BasicUpperArea;
 
 /**
@@ -29,7 +30,7 @@ public class BasicCalculatorController extends BaseCalculatorController {
 	}
 	
 	@Override
-	public void processOperator(String origin, String op) {
+	public void processOperator(Element.SubType subType, String rep) {
 		
 	}
 	

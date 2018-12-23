@@ -38,11 +38,11 @@ public class ScientificCalculatorController extends BaseCalculatorController {
 	}
 	
 	@Override
-	public void processOperator(String origin, String op) {		
+	public void processOperator(Element.SubType subType, String rep) {		
 		if (!lowerArea.isResult() || lowerArea.isFinalResult())
 			lowerArea.submitNumber();
 		
-		upperArea.appendOperator(new Element(ElementType.OP, origin, op));
+		upperArea.appendOperator(new Element(Element.Type.OP, subType, rep));
 		lowerArea.setResult(upperArea.evaluate(), false);
 		
 		updateView();

@@ -2,7 +2,7 @@ package controllers.common;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import models.LowerArea;
+import models.lowerarea.LowerArea;
 import models.upperarea.UpperArea;
 
 /**

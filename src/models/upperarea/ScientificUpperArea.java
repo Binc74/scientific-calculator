@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 import models.elements.Element;
-import models.elements.ElementType;
 import util.Calculation;
 
 public class ScientificUpperArea extends BaseUpperArea {
@@ -23,7 +22,7 @@ public class ScientificUpperArea extends BaseUpperArea {
 	
 	private boolean endWithRightParen() {
 		return exp.size() > 0 && pendingOperator == null && 
-				exp.getLast().type == ElementType.RIGHT_PAREN;
+				exp.getLast().type == Element.Type.RIGHT_PAREN;
 	}
 	
 	private LinkedList<Element> sublistStartFrom(int from) {
@@ -40,7 +39,7 @@ public class ScientificUpperArea extends BaseUpperArea {
 	
 	private LinkedList<Element> getEvalList() {
 		if (lastLeftParen > 0) {
-			if (exp.peekLast().type == ElementType.RIGHT_PAREN)
+			if (exp.peekLast().type == Element.Type.RIGHT_PAREN)
 				return sublistStartFrom(lastLeftParen);
 			else
 				return sublistStartFrom(lastLeftParen + 1);
@@ -55,7 +54,7 @@ public class ScientificUpperArea extends BaseUpperArea {
 			pendingOperator = null;
 		}
 		
-		exp.addLast(new Element(ElementType.LEFT_PAREN, "(", "("));
+		exp.addLast(new Element(Element.Type.LEFT_PAREN, "("));
 		
 		int currParenPos = exp.size() - 1;
 		parenPos.push(currParenPos);
@@ -63,7 +62,7 @@ public class ScientificUpperArea extends BaseUpperArea {
 	}
 	
 	public void addRightParen() {
-		exp.addLast(new Element(ElementType.RIGHT_PAREN, ")", ")"));
+		exp.addLast(new Element(Element.Type.RIGHT_PAREN, ")"));
 		lastLeftParen = parenPos.pop();
 	}
 	
@@ -72,7 +71,7 @@ public class ScientificUpperArea extends BaseUpperArea {
 		if (endWithRightParen()) {
 			Element temp = exp.removeLast();
 			
-			while (temp.type != ElementType.LEFT_PAREN) {
+			while (temp.type != Element.Type.LEFT_PAREN) {
 				temp = exp.removeLast();
 			}
 		}
@@ -80,7 +79,7 @@ public class ScientificUpperArea extends BaseUpperArea {
 	
 	@Override
 	public void appendOperator(Element op) {
-		assert op.type == ElementType.OP: "error: element type is not operator";
+		assert op.type == Element.Type.OP: "error: element type is not operator";
 		
 		if (parenPos.size() > 0)
 			lastLeftParen = parenPos.peek();

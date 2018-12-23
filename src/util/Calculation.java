@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.Set;
 
 import models.elements.Element;
-import models.elements.ElementType;
 
 /**
  * Utility class for calculation.
@@ -13,21 +12,21 @@ import models.elements.ElementType;
  * @author Bin Chen
  */
 public class Calculation {
-	private Set<String> addOpSet;
-	private Set<String> multiOpSet;
+	private Set<Element.SubType> addOpSet;
+	private Set<Element.SubType> multiOpSet;
 	
 	
 	public Calculation() {
 		addOpSet = new HashSet<> ();
 		multiOpSet = new HashSet<> ();
 		
-		addOpSet.add("+");
-		addOpSet.add("-");
+		addOpSet.add(Element.SubType.ADD);
+		addOpSet.add(Element.SubType.MINUS);
 		
-		multiOpSet.add("Mod");
-		multiOpSet.add("*");
-		multiOpSet.add("/");
-		multiOpSet.add("^");
+		multiOpSet.add(Element.SubType.MOD);
+		multiOpSet.add(Element.SubType.MULT);
+		multiOpSet.add(Element.SubType.DIVIDE);
+		multiOpSet.add(Element.SubType.POWER);
 	}
 	
 	/**
@@ -65,16 +64,19 @@ public class Calculation {
 	private double parseExpr(LinkedList<Element> tokens) {
 		double val = parseTerm(tokens);
 		
-		while (tokens.size() > 0 && addOpSet.contains(tokens.peekFirst().val)) {
-			String op = tokens.removeFirst().val;
+		while (tokens.size() > 0 && addOpSet.contains(tokens.peekFirst().subType)) {
+			Element.SubType op = tokens.removeFirst().subType;
 			double val2 = parseTerm(tokens);
 			
 			switch(op) {
-			case "+":
+			case ADD:
 				val += val2;
 				break;
-			case "-":
+			case MINUS:
 				val -= val2;
+				break;
+			default:
+				
 				break;
 			}
 		}
@@ -91,21 +93,21 @@ public class Calculation {
 	private double parseTerm(LinkedList<Element> tokens) {
 		double val = parseFactor(tokens);
 		
-		while (tokens.size() > 0 && multiOpSet.contains(tokens.peekFirst().val)) {
-			String op = tokens.removeFirst().val;
+		while (tokens.size() > 0 && multiOpSet.contains(tokens.peekFirst().subType)) {
+			Element.SubType op = tokens.removeFirst().subType;
 			double val2 = parseFactor(tokens);
 			
 			switch(op) {
-			case "*":
+			case MULT:
 				val *= val2;
 				break;
-			case "/":
+			case DIVIDE:
 				val /= val2;
 				break;
-			case "Mod":
+			case MOD:
 				val %= val2;
 				break;
-			case "^":
+			case POWER:
 				val = Math.pow(val, val2);
 				break;
 			}
@@ -121,7 +123,7 @@ public class Calculation {
 	 * @return 						the result
 	 */
 	private double parseFactor(LinkedList<Element> tokens) {
-		if (tokens.peekFirst().type == ElementType.NUMBER) {
+		if (tokens.peekFirst().type == Element.Type.NUMBER) {
 			return Double.parseDouble(tokens.removeFirst().val);
 		}
 			
@@ -135,7 +137,7 @@ public class Calculation {
 	 * @return 						the result
 	 */
 	private double parseSubFactor(LinkedList<Element> tokens) {
-		if (tokens.peekFirst().type == ElementType.LEFT_PAREN)
+		if (tokens.peekFirst().type == Element.Type.LEFT_PAREN)
 			return parseParam(tokens);
 		
 		return parseFunction(tokens);
@@ -148,11 +150,11 @@ public class Calculation {
 	 * @return						the result
 	 */
 	private double parseParam(LinkedList<Element> tokens) {
-		if (tokens.removeFirst().type != ElementType.LEFT_PAREN)
+		if (tokens.removeFirst().type != Element.Type.LEFT_PAREN)
 			System.err.println("error: can't find '('");
 		double val = parseExpr(tokens);
 		
-		if (tokens.removeFirst().type != ElementType.RIGHT_PAREN)
+		if (tokens.removeFirst().type != Element.Type.RIGHT_PAREN)
 			System.err.println("error: can't find ')'");
 		
 		return val;
@@ -165,10 +167,10 @@ public class Calculation {
 	 * @return 						the result
 	 */
 	private double parseFunction(LinkedList<Element> tokens) {
-		String func = tokens.removeFirst().val;
+		Element.SubType func = tokens.removeFirst().subType;
 		double param = parseExpr(tokens);
 		
-		if (tokens.removeFirst().type != ElementType.RIGHT_PAREN)
+		if (tokens.removeFirst().type != Element.Type.RIGHT_PAREN)
 			System.err.println("error: can't find ')'");
 		
 		switch (func) {

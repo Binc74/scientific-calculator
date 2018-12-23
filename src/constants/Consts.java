@@ -15,9 +15,4 @@ public class Consts {
 	public static final int LOWER_FONT_SIZE = 50;
 	public static final int UPPER_FONT_SIZE = 30;
 	
-	public static final String ADD = "+";
-	public static final String MINUS = "-";
-	public static final String MULTI = "*";
-	public static final String DIVIDE = "/";
-	public static final String MOD = "Mod";
 }

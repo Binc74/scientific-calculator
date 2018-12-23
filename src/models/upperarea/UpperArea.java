@@ -1,7 +1,7 @@
 package models.upperarea;
 
-import models.LowerArea;
 import models.elements.Element;
+import models.lowerarea.LowerArea;
 
 public interface UpperArea {
 	/**

@@ -1,7 +1,6 @@
-package models;
+package models.lowerarea;
 
 import models.elements.Element;
-import models.elements.ElementType;
 import models.upperarea.UpperArea;
 
 /**
@@ -113,7 +112,7 @@ public class LowerArea {
 		if (val.length() == 0) val = "0";
 		if (isNegative) val = "-" + val;
 		
-		Element e = new Element(ElementType.NUMBER, val, val);
+		Element e = new Element(Element.Type.NUMBER, val, val);
 		reset();
 		upperArea.append(e);
 	}
@@ -124,7 +123,7 @@ public class LowerArea {
 	 * @param str					the string to be trim
 	 * @return						the result string
 	 */
-	public String trimZeros(String str) {
+	private String trimZeros(String str) {
 		int pos = str.length() - 1;
 		
 		while (pos >= 0 && (str.charAt(pos) == '0' || str.charAt(pos) == '.')) {
